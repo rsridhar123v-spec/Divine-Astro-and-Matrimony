@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divine Astro & Matrimony</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@400;700&family=Cinzel:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #FFD700; 
+            background-image: 
+                radial-gradient(rgba(255, 255, 255, 0.4) 1px, transparent 40px),
+                linear-gradient(45deg, transparent 45%, rgba(139, 0, 0, 0.05) 48%, rgba(139, 0, 0, 0.05) 52%, transparent 55%),
+                url('https://img.icons8.com/ios-filled/400/800000/shiva-trident.png'); 
+            background-size: 80px 80px, 60px 60px, 350px 350px;
+            background-position: 0 0, 0 0, center 250px;
+            background-repeat: repeat, repeat, no-repeat;
+            background-attachment: scroll, scroll, fixed;
+            font-family: 'Mukta Malar', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            color: #333;
+        }
+
+        .top-bar {
+            background-color: #800000;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 9999;
+        }
+
+        .language-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        #google_translate_element {
+            display: inline-block;
+        }
+
+        #google_translate_element select {
+            padding: 8px 12px;
+            border-radius: 5px;
+            border: 2px solid #FFD700;
+            font-family: inherit;
+            font-size: 14px;
+            background-color: white;
+            color: #333;
+            direction: ltr !important;
+            cursor: pointer;
+        }
+
+        header {
+            padding: 30px 20px;
+        }
+
+        .god-bless {
+            font-size: 24px;
+            font-weight: bold;
+            color: #800000;
+            margin: 0 0 10px 0;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+        }
+
+        .brand-name {
+            font-family: 'Cinzel', serif;
+            font-size: 32px;
+            color: #000000;
+            margin: 0 0 25px 0;
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 3px rgba(255, 215, 0, 0.5);
+        }
+
+        .god-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+            padding: 10px;
+        }
+
+        .god-gallery img {
+            width: 120px; 
+            height: 120px; 
+            object-fit: cover; 
+            object-position: top center; 
+            border-radius: 50%; 
+            border: 4px solid #800000;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+            background-color: #fff;
+        }
+
+        .god-gallery img:hover {
+            transform: scale(1.1);
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            max-width: 800px;
+            margin: 25px auto;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            border: 2px solid #800000;
+            text-align: left;
+        }
+
+        h2 {
+            color: #800000;
+            border-bottom: 2px solid #FFD700;
+            padding-bottom: 8px;
+            margin-top: 0;
+            font-size: 24px;
+        }
+
+        .services-list, .safety-list {
+            padding-left: 20px;
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            color: #800000;
+            font-size: 16px;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 12px;
+            box-sizing: border-box;
+            border: 2px solid #800000;
+            border-radius: 6px;
+            font-size: 16px;
+            background-color: #fff;
+            color: #333;
+            font-family: inherit;
+        }
+
+        .slots-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .slot-btn {
+            background-color: #fff;
+            border: 2px solid #800000;
+            color: #800000;
+            padding: 12px;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 15px;
+        }
+
+        .slot-btn:hover {
+            background-color: #fff3f3;
+        }
+
+        .slot-btn.selected {
+            background-color: #800000;
+            color: #fff;
+        }
+
+        .slot-btn.booked {
+            background-color: #e0e0e0;
+            border-color: #bbb;
+            color: #888;
+            cursor: not-allowed;
+            text-decoration: line-through;
+        }
+
+        .book-btn {
+            background-color: #800000;
+            color: white;
+            border: none;
+            padding: 14px 25px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            transition: 0.3s;
+        }
+
+        .book-btn:hover {
+            background-color: #000;
+        }
+
+        .payment-box {
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            border: 2px dashed #800000;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .gpay-text {
+            font-size: 20px;
+            font-weight: bold;
+            color: #800000;
+            background: #fff3f3;
+            padding: 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .qr-placeholder {
+            width: 180px;
+            height: 180px;
+            border: 2px solid #800000;
+            margin: 10px auto;
+            background: #fdfdfd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qr-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        footer {
+            background-color: #800000;
+            color: white;
+            padding: 25px;
+            margin-top: 40px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            background-color: #25D366;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-top: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        .social-media-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px);
+        }
+
+        .facebook { background-color: #1877F2; }
+        .instagram { background-color: #E1306C; }
+        .youtube { background-color: #FF0000; }
+
+        @media (max-width: 600px) {
+            .brand-name { font-size: 24px; }
+            .god-gallery img { width: 95px; height: 95px; }
+            .container { width: 92%; padding: 15px; }
+            .slots-container { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="language-section">
+            <span>🌐 Select Language / மொழியைத் தேர்ந்தெடுக்கவும்: </span>
+            <div id="google_translate_element"></div>
+        </div>
+    </div>
+
+    <header>
+        <h2 class="god-bless">ஓம் ஸ்ரீ அங்காள பரமேஸ்வரி துணை</h2>
+        <h1 class="brand-name">Divine Astro & Matrimony</h1>
+
+        <div class="god-gallery">
+            <img src="vinayagar.jpg" alt="1. ஐந்து கரத்தன் விநாயகர்">
+            <img src="thurkai.jpg" alt="2. துர்க்கை அம்மன்">
+            <img src="iyyapan.jpg" alt="3. புலி வாகன ஐயப்பன்">
+            <img src="venkadasalapthi.jpg" alt="4. மகாலட்சுமி சமேத வெங்கடாசலபதி">
+            <img src="thanvanthiri.jpg" alt="5. தன்வந்திரி பகவான்">
+            <img src="murugan.jpg" alt="6. மயில் வாகன முருகன்">
+        </div>
+    </header>
+
+    <div class="container">
+        <h2>🔮 எங்களது ஆன்மீக சேவைகள்:</h2>
+        <ul class="services-list">
+            <li><b>திருமண பொருத்தம்:</b> ஆண், பெண் இருபாலருக்கும் மிகத் துல்லியமாக ஜாதகப் திருமணப் பொருத்தங்கள் சிறந்த முறையில் பார்த்துத் தரப்படும்.</li>
+            <li>உங்கள் விபரங்களின்படி மிகச் சரியாக ஜாதகம் கணித்து எழுதிக் கொடுக்கப்படும்.</li>
+            <li><b>வாக்கியம்</b> மற்றும் <b>திருக்கணித</b> ஆகிய இரு முறைகளிலும் சிறந்த முறையில் ஜாதகம் கணித்து வழங்கப்படும்.</li>
+            <li>சிறந்த முறையில் துல்லியமான <b>வாஸ்து சாஸ்திர ஆலோசனைகள்</b> மற்றும் பலன்கள் வழங்கப்படும்.</li>
+            <li>உங்கள் பெயருக்கும் தொழிலுக்கும் அதிர்ஷ்டம் தரும் <b>எண்கணிதம் (Numerology)</b> முறைப்படி பெயர்கள் அமைத்துத் தரப்படும்.</li>
+            <li><b>திருமணத் தகவல் சேவை:</b> அனைத்து மத மற்றும் அனைத்து ஜாதியினத்தவர்களுக்கும் சிறந்த முறையில் வரன்கள் தேடித் தரப்படும்.</li>
+            <li><b>கட்டண விபரம்:</b> ஆரம்பப் பதிவு கட்டணம் மட்டுமே உண்டு. வரன் அமைந்த பின் எந்தவிதமான <b>சேவை கட்டணமும் கிடையாது!</b></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h2>🛡️ பாதுகாப்பான வரன் தேர்வு முறைகள்:</h2>
+        <p style="font-weight: bold; color: #800000; font-size: 17px;">திருமண வரன் அமைக்கும் போது தவறுகள் மற்றும் ஏماற்றங்களைத் தவிர்க்க எங்களது பரிந்துரைகள்:</p>
+        <ul class="safety-list">
+            <li><b>சுயவிபர சரிபார்ப்பு:</b> ஜாதகம் மற்றும் வரன்களின் சுயவிபரங்களை இருதரப்பும் நேரடியாக தீர விசாரித்து உறுதி செய்ய வேண்டும்.</li>
+            <li><b>நேரடி சந்திப்பு:</b> குடும்பத்தாரோடு நேரில் சென்று பேசி பாரம்பரிய வழக்கங்களை அறிவது நலம்.</li>
+            <li><b>பணப் பரிவர்த்தனை:</b> திருமணம் உறுதி செய்வதற்கு முன்பாக அவசரமாகப் பணப் பரிமாற்றம் செய்வதைத் முற்றிலும் தவிர்க்கவும்.</li>
+            <li><b>சட்டப்பூர்வ விழிப்புணர்வு:</b> பெரியவர்களின் முன்னிலையில் மட்டுமே திருமண முடிவுகளை எடுக்க வேண்டும்.</li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h2>📅 முன்பதிவு செய்ய (Book Appointment):</h2>
+        <form onsubmit="sendToWhatsApp(event)">
+            <div class="form-group">
+                <label>வாடிக்கையாளர் பெயர் (Name):</label>
+                <input type="text" id="cust_name" required placeholder="உங்கள் பெயரை உள்ளிடவும்">
+            </div>
+            
+            <div class="form-group">
+                <label>பிறந்த தேதி (Date of Birth):</label>
+                <input type="date" id="cust_dob" required>
+            </div>
+            
+            <div class="form-group">
+                <label>பிறந்த நேரம் (Time of Birth):</label>
+                <input type="time" id="cust_tob" required>
+            </div>
+            
+            <div class="form-group">
+                <label>பிறந்த இடம்/ஊர் (Place of Birth):</label>
+                <input type="text" id="cust_pob" required placeholder="Ex: Karaikal, Chennai, Mayiladuthurai..." list="tn_puducherry_cities" autocomplete="off">
+                <datalist id="tn_puducherry_cities">
+                    <option value="Karaikal, Puducherry"></option>
+                    <option value="Puducherry (Pondicherry)"></option>
+                    <option value="Chennai, Tamil Nadu"></option>
+                    <option value="Mayiladuthurai, Tamil Nadu"></option>
+                    <option value="Chidambaram, Tamil Nadu"></option>
+                    <option value="Kumbakonam, Tamil Nadu"></option>
+                    <option value="Nagapattinam, Tamil Nadu"></option>
+                    <option value="Thiruvarur, Tamil Nadu"></option>
+                    <option value="Thanjavur, Tamil Nadu"></option>
+                    <option value="Trichy, Tamil Nadu"></option>
+                    <option value="Madurai, Tamil Nadu"></option>
+                    <option value="Coimbatore, Tamil Nadu"></option>
+                </datalist>
+            </div>
+            
+            <div class="form-group">
+                <label>1. அப்பாயிண்ட்மெண்ட் தேதி தேர்வு செய்யவும் (Select Date):</label>
+                <input type="date" id="cust_app_date" required onchange="generateAvailableSlots(this.value)">
+            </div>
+
+            <div class="form-group">
+                <label>2. கிடைக்கும் நேரத்தைத் தேர்ந்தெடுக்கவும் (Select Time Slot):</label>
+                <input type="hidden" id="cust_selected_slot" required>
+                <div id="slots_display" class="slots-container">
+                    <p style="color:#e65c00; font-style:italic; font-weight:bold; margin: 0;">காலண்டரில் தேதியைத் தேர்ந்தெடுத்தவுடன், நேரங்கள் இங்கே தோன்றும்...</p>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>கருத்துக்கள் / கேள்விகள் (Comments):</label>
+                <textarea id="cust_comments" rows="3" placeholder="ஜோதிடரிடம் கேட்க விரும்பும் கேள்விகள்..."></textarea>
+            </div>
+            <button type="submit" class="book-btn">🚀 முன்பதிவு செய் (Book Now)</button>
+        </form>
+
+        <div class="payment-box">
+            <h2>💳 கட்டண விபரங்கள் (Payment Details)</h2>
+            <div class="gpay-text">Google Pay / PhonePe: 9443984415</div>
+            <p>கீழே உள்ள QR கோடை ஸ்கேன் செய்தும் கட்டணத்தைச் செலுத்தலாம்:</p>
+            <div class="qr-placeholder">
+                <img src="qr.jpg" alt="QR Code" onerror="this.style.display='none'; this.parentNode.innerText='[ QR CODE IMAGE (qr.jpg) ]';">
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p style="font-size: 20px; font-weight: bold; letter-spacing: 1px;">ஓம் ஸ்ரீ அகஸ்தியர் ஜோதிட நிலையம் & திருமண தகவல் மையம்</p>
+        <p><b>ஜோதிடர்:</b> GV.அரங்கநாதன், D.A. Astro, B.A. Astro, MSC Applied Astrology.</p>
+        <p><b>முகவரி:</b> 2/187, 1, New Street, Hariharankoodal, Boothanoor (PO), Tharangambadi (Tk), Mayiladuthurai DT, Tamil Nadu.</p>
+        <p><b>அஞ்சல் குறியீடு:</b> 609812</p>
+        <p><b>தொடர்பு எண் / WhatsApp:</b> +91 9443984414</p>
+        
+        <a href="https://wa.me/919443984414?text=வணக்கம்" class="contact-btn" target="_blank">💬 நேரிடையாக வாட்ஸ்அப்பில் பேசலாம்</a>
+
+        <!-- 👇 கீழே உள்ள இந்த 3 வரிகளில் மட்டும் கவனமாக உங்கள் நிஜமான லிங்க்குகளை மாற்றுங்கள் அண்ணே 👇 -->
+        <div class="social-media-container">
+            <a href="இங்கே_உங்கள்_பேஸ்புக்_லிங்க்" class="social-icon facebook" target="_blank" title="Facebook பக்கம்"><i class="fab fa-facebook-f"></i></a>
+            <a href="இங்கே_உங்கள்_இன்ஸ்டா_லிங்க்" class="social-icon instagram" target="_blank" title="Instagram பக்கம்"><i class="fab fa-instagram"></i></a>
+            <a href="இங்கே_உங்கள்_யூடியூப்_லிங்க்" class="social-icon youtube" target="_blank" title="YouTube சேனல்"><i class="fab fa-youtube"></i></a>
+        </div>
+    </footer>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'ta',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <script type="text/javascript">
+        const bookedAppointments = [
+            '2026-07-03 10:00 AM',
+            '2026-07-03 11:00 AM'
+        ];
+
+        window.onload = function() {
+            let today = new Date();
+            let dd = String(today.getDate()).padStart(2, '0');
+            let mm = String(today.getMonth() + 1).padStart(2, '0'); 
+            let yyyy = today.getFullYear();
+            document.getElementById('cust_app_date').setAttribute('min', `${yyyy}-${mm}-${dd}`);
+        }
+
+        function generateAvailableSlots(selectedDate) {
+            const displayArea = document.getElementById('slots_display');
+            document.getElementById('cust_selected_slot').value = ""; 
+            displayArea.innerHTML = ""; 
+
+            if(!selectedDate) return;
+
+            const standardSlots = [
+                '10:00 AM', '11:00 AM', '12:00 PM', 
+                '02:00 PM', '03:00 PM', '04:00 PM', '05:00 PM'
+            ];
+
+            let textHtml = "";
+
+            standardSlots.forEach(slot => {
+                const checkString = `${selectedDate} ${slot}`;
+                const isBooked = bookedAppointments.includes(checkString);
+
+                if (isBooked) {
+                    textHtml += `<div class="slot-btn booked">Booked ❌</div>`;
+                } else {
+                    textHtml += `<div class="slot-btn" onclick="selectTimeSlot(this, '${slot}')">${slot}</div>`;
+                }
+            });
+
+            displayArea.innerHTML = textHtml;
+        }
+
+        function selectTimeSlot(element, timeValue) {
+            const allButtons = document.querySelectorAll('.slot-btn');
+            allButtons.forEach(btn => btn.classList.remove('selected'));
+            element.classList.add('selected');
+            document.getElementById('cust_selected_slot').value = timeValue;
+        }
+
+        function sendToWhatsApp(event) {
+            event.preventDefault();
+            const targetNumber = "919443984415"; 
+
+            const name = document.getElementById('cust_name').value;
+            const dob = document.getElementById('cust_dob').value;
+            const tob = document.getElementById('cust_tob').value;
+            const pob = document.getElementById('cust_pob').value;
+            const appDate = document.getElementById('cust_app_date').value;
+            const appTime = document.getElementById('cust_selected_slot').value;
+            const comments = document.getElementById('cust_comments').value || "இல்லை";
+
+            if (!appTime) {
+                alert("தயவுசெய்து உங்களுக்கான நேரத்தை (Time Slot) தேர்ந்தெடுக்கவும்!");
+                return;
+            }
+
+            const message = `✨ *புதிய அப்பாயிண்ட்மென்ட் முன்பதிவு* ✨\n\n` +
+                            `👤 *பெயர்:* ${name}\n` +
+                            `📅 *பிறந்த தேதி:* ${dob}\n` +
+                            `⏰ *நேரம்:* ${tob}\n` +
+                            `📍 *ஊர்:* ${pob}\n\n` +
+                            `🗓️ *அப்பாயிண்ட்மெண்ட் தேதி:* ${appDate}\n` +
+                            `⏰ *நேரம்:* ${appTime}\n` +
+                            `💬 *கருத்துக்கள்:* ${comments}`;
+
+            window.open(`https://wa.me/${targetNumber}?text=${encodeURIComponent(message)}`, '_blank');
+        }
+    </script>
+</body>
+</html>
